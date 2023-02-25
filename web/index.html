@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | #BoraCodar(8)</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
+
+
+    <link rel="stylesheet" href="./styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/phosphor-icons"></script>
+
+</head>
+<script>
+    function handleChangeTheme() {
+        const currentTheme = document.body.attributes.theme.value
+        document.body.attributes.theme.value = currentTheme === "light" ? "dark" : "light"
+    }
+
+    function handleNewProgress(inputId, id) {
+
+        console.log(inputId)
+
+        const changedInput = document.getElementById(inputId)
+        const progressCircle = document.getElementById(id)
+
+        const value = changedInput.value.replace('%', '')
+
+        progressCircle.style.strokeDashoffset = 502 - (502 * value / 100)
+    }
+
+</script>
+
+<body theme="dark">
+    <div id="app">
+        <button id="themeButton" onclick="handleChangeTheme()">
+            <i class="ph-moon"></i>
+        </button>
+        <div id="wrapper">
+
+            <section class="info-section">
+                <h1>NPS geral</h1>
+
+                <div class="non-progress-info column-flex">
+                    <img src="./assets/happy.svg">
+                    <p>Excelente!</p>
+                </div>
+
+                <footer class="row-flex">
+                    <p>
+                        NPS Score
+                        <span>75</span>
+                    </p>
+                </footer>
+            </section>
+
+            <section class="info-section">
+
+                <h1>Vendas fechadas</h1>
+                <div class="progress-info purple">
+                    <svg>
+                        <circle cx="100" cy="100" r="80"></circle>
+                        <circle cx="100" cy="100" r="80" id="first"
+                            style="stroke-dashoffset: calc(502 - (502*70/100));"></circle>
+                    </svg>
+                    <div>
+                        <input value="70%" oninput="handleNewProgress('first-input', 'first')" id="first-input"></input>
+                        <p>alcançada</p>
+                    </div>
+                </div>
+                <footer class="row-flex">
+
+                    <p>
+                        esperando
+                        <span>100</span>
+                    </p>
+                    <p>
+                        alcançado
+                        <span>70</span>
+                    </p>
+
+                </footer>
+            </section>
+
+            <section class="info-section">
+                <h1>Meta mensal</h1>
+                <div class="progress-info light-purple">
+                    <svg>
+                        <circle cx="100" cy="100" r="80"></circle>
+                        <circle cx="100" cy="100" r="80" id="second"
+                            style="stroke-dashoffset: calc(502 - (502*90/100));"></circle>
+                    </svg>
+                    <div>
+                        <input value="90%" id="second-input"
+                            oninput="handleNewProgress('second-input', 'second')"></input>
+                        <p>alcançada</p>
+                    </div>
+                </div>
+                <footer class="row-flex">
+
+                    <p>
+                        esperando
+                        <span>R$ 70k</span>
+                    </p>
+
+                    <p>
+                        alcançado
+                        <span>R$ 63k</span>
+                    </p>
+
+                </footer>
+            </section>
+
+            <section class="info-section daily-sales">
+
+                
+                <div class="daily-sales-text-infos">
+                    <h1>
+                        Vendas por dia da semana
+                    </h1>
+
+                    <div>
+                        <h2>
+                            <i class="ph-caret-double-up"></i> Dia com mais vendas
+                        </h2>
+                        <p>
+                            quarta-feira
+                        </p>
+                    </div>
+                    <div>
+                        <h2>
+                            <i class="ph-caret-double-down"></i> Dia com menos vendas
+                        </h2>
+                        <p>
+                            domingo
+                        </p>
+                    </div>
+
+                </div>
+                <div class="daily-sales-graphic">
+                    <div id="line"></div>
+                    <div class="graphic-day">
+                        <div style="height: 3.9rem" class="graphic-day-bar"></div>
+                        <p>dom</p>
+                    </div>
+                    <div class="graphic-day">
+                        <div style="height: 11.5rem" class="graphic-day-bar"></div>
+                        <p>seg</p>
+                    </div>
+                    <div class="graphic-day">
+                        <div style="height: 7.6rem" class="graphic-day-bar"></div>
+                        <p>ter</p>
+                    </div>
+                    <div class="graphic-day">
+                        <div style="height: 15.9rem" class="graphic-day-bar"></div>
+                        <p>qua</p>
+                    </div>
+                    <div class="graphic-day">
+                        <div style="height: 12.9rem" class="graphic-day-bar"></div>
+                        <p>qui</p>
+                    </div>
+                    <div class="graphic-day">
+                        <div style="height: 12rem" class="graphic-day-bar"></div>
+                        <p>sex</p>
+                    </div>
+                    <div class="graphic-day">
+                        <div style="height: 6.9rem" class="graphic-day-bar"></div>
+                        <p>dom</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+
+</html>

@@ -1,0 +1,348 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'inter';
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body[theme="dark"] {
+    --background-color: #292738;
+    --inverse-background-color: #f8f8ff;
+    --secondary-background-color: #363447;
+
+    --green: #81fbb8;
+
+    color: var(--inverse-background-color);
+}
+
+body[theme="light"] {
+    --background-color: #f8f8ff;
+    --inverse-background-color: #292738;
+    --secondary-background-color: #DBDBDB;
+    --green: #147941;
+
+    color: var(--inverse-background-color);
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: var(--background-color);
+    color: var(--inverse-background-color);
+}
+
+
+button {
+    cursor: pointer;
+    transition: 200ms;
+
+}
+
+.column-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-flex {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#app {
+    position: relative;
+    padding: 1rem;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+#themeButton {
+
+    border: none;
+    width: 100%;
+
+    background-color: var(--inverse-background-color);
+    color: var(--background-color);
+    opacity: 0.7;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 3rem;
+
+    transition: 300ms;
+    border-radius: 1.6rem;
+}
+
+#themeButton:hover {
+    opacity: 1;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.20rem;
+    margin-top: 3.2rem;
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+    padding: 2.8rem 4.8rem;
+    background-color: var(--secondary-background-color);
+    border-radius: 1.6rem;
+    gap: 3.2rem;
+}
+
+.info-section h1 {
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 160%;
+}
+
+.info-section footer {
+    justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
+}
+
+.info-section footer p {
+    margin: auto;
+
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 160%;
+
+}
+
+.info-section footer p span {
+    font-weight: 400;
+}
+
+
+
+.non-progress-info {
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    height: 19.7rem;
+}
+
+.non-progress-info img {
+    width: 60%;
+}
+
+.non-progress-info p {
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 160%;
+    color: var(--green);
+}
+
+.progress-info {
+    height: 19.7rem;
+    width: 19.7rem;
+    position: relative;
+}
+
+.progress-info svg {
+    width: 100%;
+    height: 100%;
+}
+
+.progress-info svg circle {
+    fill: none;
+    stroke: black;
+    stroke-width: 3.1rem;
+    stroke-dasharray: 502;
+    stroke-dashoffset: 502;
+
+    transition: 700ms;
+}
+
+
+.progress-info svg circle:nth-child(1) {
+    stroke-dashoffset: 0;
+    stroke: #474555;
+}
+
+.progress-info svg circle:nth-child(2) {
+    stroke-linecap: round;
+}
+
+.purple svg circle:nth-child(2) {
+    stroke: #8557eb;
+}
+
+.light-purple svg circle:nth-child(2) {
+    stroke: #c582ad;
+}
+
+.progress-info div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.progress-info div input {
+    background: none;
+    width: 19rem;
+    border: none;
+    outline: none;
+    text-align: center;
+
+    line-height: 160%;
+    color: var(--inverse-background-color);
+    font-weight: 700;
+    font-size: 3.4rem;
+}
+
+.progress-info div p {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 160%;
+    margin-top: -1.2rem;
+}
+
+.progress-info div:focus-within {
+    outline: auto;
+}
+
+
+.daily-sales-text-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+}
+
+.daily-sales-text-infos h2 {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 160%;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.daily-sales-text-infos div:nth-child(2) h2 i {
+    font-size: 2rem;
+    color: #81FBB8;
+}
+
+.daily-sales-text-infos div:nth-child(3) h2 i {
+    color: #EA5455;
+    font-size: 2rem;
+}
+
+.daily-sales-text-infos p {
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 160%;
+}
+
+
+.daily-sales-graphic {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    height: 18.6rem;
+}
+
+.graphic-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 2.5rem;
+    z-index: 10;
+    gap: 0.5rem;
+}
+
+.graphic-day-bar {
+    background-color: var(--green);
+    border-radius: 999px;
+    width: 1.5rem;
+}
+
+#line {
+    height: 0.3rem;
+    border-radius: 999px;
+    width: 100%;
+    background-color: rgba(74, 69, 86, 1);
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+}
+
+
+/* desktop versions: */
+
+@media (min-width: 640px) {
+
+    #app {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #themeButton {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 10rem;
+    }
+
+    #wrapper {
+        max-width: 112rem;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .daily-sales {
+        display: flex;
+    }
+
+    .daily-sales-text-infos {
+        display: grid;
+    }
+
+    .daily-sales-graphic {
+        max-width: 52.3rem;
+        align-self: flex-end;
+    }
+
+}
+
+@media (min-width: 952px) {
+
+    #wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .daily-sales {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        flex-direction: row;
+        text-align: left;
+    }
+
+}
